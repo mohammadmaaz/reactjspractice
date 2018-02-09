@@ -1,6 +1,33 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 export default class Content extends Component {
+    constructor(){
+      // Must be defined in constructor
+      super();
+      // State defined
+      this.state = {
+        productlist:[],
+      };
+      // Binding getAllProduct function with
+      this.getAllProduct = this.getAllProduct.bind(this);
+    }
+    // give all product
+    getAllProduct(){
+      axios.get('http://localhost:8080/viewprod').then(
+        (response)=>{
+          //console.log(response.data.data);
+          this.productlist = response.data.data;
+          console.log(this.productlist[0]);
+        }
+      ).catch(
+        function (error){ console.log(error);}
+      )
+    }
+    // mounting the components func
+    componentWillMount(){
+      this.getAllProduct();
+    }
     render(){
         return (
             <div className="content-wrapper">
@@ -14,21 +41,8 @@ export default class Content extends Component {
                                 <div className="box-body">
                                     <div className="row">
                                         <div className="col-md-8">
-                                            <p className="text-center">
-                                                <strong>This is text</strong>
-                                            </p>
+                                          <p>Product List</p>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="box-footer">
-                                    <div className="row">
-                                        <div className="col-sm-3 col-xs-6">
-                                            <div className="description-block border-right">
-                                                <span className="description-percentage text-green"><i className="fa fa-caret-up"></i> 17%</span>
-                                                <h5 className="description-header">$35,210.43</h5>
-                                                <span className="description-text">TOTAL REVENUE</span>
-                                            </div>
-                                        </div>    
                                     </div>
                                 </div>
                             </div>

@@ -7,14 +7,14 @@ export default class SideBar extends Component {
                 <section className="sidebar">
                     <div className="user-panel">
                         <div className="pull-left image">
-                            <img src="img/user2-160x160.jpg" className="img-circle" alt="User Image" />
+                            <img src={process.env.PUBLIC_URL + 'img/user2-160x160.jpg'} className="img-circle" aria-hidden alt="User Image" />
                         </div>
                         <div className="pull-left info">
                             <p>Alexander Pierce</p>
-                            <a href="#"><i className="fa fa-circle text-success"></i> Online</a>
+                            <a href=""><i className="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
-                    <form action="#" method="get" className="sidebar-form">
+                    <form action="" method="get" className="sidebar-form">
                         <div className="input-group">
                         <input type="text" name="q" className="form-control" placeholder="Search..." />
                         <span className="input-group-btn">
@@ -26,7 +26,7 @@ export default class SideBar extends Component {
                     <ul className="sidebar-menu" data-widget="tree">
                         <li className="header">MAIN NAVIGATION</li>
                         <li className="treeview">
-                            <a href="#">
+                            <a href="">
                                 <i className="fa fa-files-o"></i>
                                 <span>Layout Options</span>
                                 <span className="pull-right-container">
@@ -49,7 +49,7 @@ export default class SideBar extends Component {
                         </a>
                         </li>
                         <li className="treeview">
-                        <a href="#">
+                        <a href="">
                             <i className="fa fa-pie-chart"></i>
                             <span>Charts</span>
                             <span className="pull-right-container">
@@ -90,7 +90,7 @@ export default class SideBar extends Component {
                         </li>
                     </ul>
                 </section>
-            </aside> 
+            </aside>
         )
     }
 }
